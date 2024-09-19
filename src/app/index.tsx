@@ -1,18 +1,9 @@
 import { Text, TouchableOpacity, View } from 'react-native';
 
-import { Theme } from '../config';
 import { useThemeStore } from '../stores';
 
 export default function AppRoot() {
-  const { themeConfig, theme, setTheme } = useThemeStore();
-
-  function handleToggleTheme() {
-    if (theme === Theme.DARK) {
-      setTheme(Theme.LIGHT);
-    } else {
-      setTheme(Theme.DARK);
-    }
-  }
+  const { themeConfig, toggleTheme } = useThemeStore();
 
   return (
     <View
@@ -38,7 +29,7 @@ export default function AppRoot() {
           width: '100%',
           borderRadius: 8,
         }}
-        onPress={handleToggleTheme}
+        onPress={toggleTheme}
       >
         <Text
           style={{

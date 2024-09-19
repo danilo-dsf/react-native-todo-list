@@ -5,13 +5,17 @@ import { Theme, ThemeConfig, ThemeConfigType } from '../config';
 type ThemeStoreType = {
   theme: Theme;
   themeConfig: ThemeConfigType;
-  setTheme: (theme: Theme) => Promise<void>;
+  toggleTheme: () => Promise<void>;
 };
 
-export const useThemeStore = create<ThemeStoreType>((set) => ({
+export const useThemeStore = create<ThemeStoreType>((set, get) => ({
   theme: Theme.DARK,
   themeConfig: ThemeConfig.dark,
-  setTheme: async (theme) => {
-    set({ theme, themeConfig: ThemeConfig[theme] });
+  toggleTheme: async () => {
+    if (get().theme === Theme.DARK) {
+      set({ theme: Theme.LIGHT, themeConfig: ThemeConfig.light });
+    } else {
+      set({ theme: Theme.DARK, themeConfig: ThemeConfig.dark });
+    }
   },
 }));
