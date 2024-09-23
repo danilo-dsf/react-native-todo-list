@@ -5,10 +5,6 @@ import { useThemeStore } from '../stores';
 export default function AppRoot() {
   const { themeConfig, toggleTheme } = useThemeStore();
 
-  // useEffect(() => {
-  //   loadTheme();
-  // }, [loadTheme]);
-
   return (
     <View
       style={{
