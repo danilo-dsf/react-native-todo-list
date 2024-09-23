@@ -1,14 +1,13 @@
-import { useEffect } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 
 import { useThemeStore } from '../stores';
 
 export default function AppRoot() {
-  const { themeConfig, toggleTheme, loadTheme } = useThemeStore();
+  const { themeConfig, toggleTheme } = useThemeStore();
 
-  useEffect(() => {
-    loadTheme();
-  }, [loadTheme]);
+  // useEffect(() => {
+  //   loadTheme();
+  // }, [loadTheme]);
 
   return (
     <View
