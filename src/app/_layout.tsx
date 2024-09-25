@@ -43,7 +43,7 @@ export default function Layout() {
       <Stack
         screenOptions={{
           headerShown: false,
-          statusBarColor: themeConfig.primary,
+          statusBarColor: themeConfig.background,
           statusBarStyle: theme === Theme.DARK ? 'light' : 'dark',
         }}
       />
