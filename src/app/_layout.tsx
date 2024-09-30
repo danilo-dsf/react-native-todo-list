@@ -3,14 +3,14 @@ import { View } from 'react-native';
 
 import { Stack } from 'expo-router/stack';
 import * as SplashScreen from 'expo-splash-screen';
+import { StatusBar } from 'expo-status-bar';
 
-import { Theme } from '../config';
 import { useThemeStore } from '../stores';
 
 SplashScreen.preventAutoHideAsync();
 
 export default function Layout() {
-  const { theme, themeConfig, loadTheme } = useThemeStore();
+  const { themeConfig, loadTheme } = useThemeStore();
 
   const [isAppReady, setIsAppReady] = useState(false);
 
@@ -40,11 +40,14 @@ export default function Layout() {
 
   return (
     <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
+      <StatusBar
+        backgroundColor={themeConfig.background}
+        style={themeConfig.statusBarStyle}
+      />
+
       <Stack
         screenOptions={{
           headerShown: false,
-          statusBarColor: themeConfig.background,
-          statusBarStyle: theme === Theme.DARK ? 'light' : 'dark',
         }}
       />
     </View>

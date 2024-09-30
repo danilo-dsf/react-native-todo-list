@@ -11,6 +11,7 @@ export type ThemeConfigType = {
   title: string;
   text: string;
   buttonText: string;
+  statusBarStyle: 'light' | 'dark';
 };
 
 export const ThemeConfig: Record<Theme, ThemeConfigType> = {
@@ -22,6 +23,7 @@ export const ThemeConfig: Record<Theme, ThemeConfigType> = {
     title: '#ecf0f1',
     text: '#bdc3c7',
     buttonText: '#ffffff',
+    statusBarStyle: 'light',
   },
   light: {
     primary: '#27ae60',
@@ -31,5 +33,6 @@ export const ThemeConfig: Record<Theme, ThemeConfigType> = {
     title: '#2c3e50',
     text: '#34495e',
     buttonText: '#ffffff',
+    statusBarStyle: 'dark',
   },
 };
